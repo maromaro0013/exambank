@@ -16,7 +16,7 @@
 #
 default: &default
   adapter: postgresql
-  encoding: unicode
+  encoding: utf8
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
@@ -78,8 +78,14 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
+staging:
+  <<: *default
+  database: exambank_staging
+  username: exambank
+  password:
+
 production:
   <<: *default
   database: exambank_production
   username: exambank
-  password: <%= ENV['EXAMBANK_DATABASE_PASSWORD'] %>
+  password: 
