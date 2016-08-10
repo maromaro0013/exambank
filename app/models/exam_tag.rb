@@ -1,0 +1,2 @@
+class ExamTag < ApplicationRecord
+end
