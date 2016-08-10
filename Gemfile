@@ -30,11 +30,16 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# device
 gem 'devise'
 gem 'cancancan'
 
+# bootstrap
 gem 'less-rails'
 gem 'twitter-bootstrap-rails'
+
+# activehash
+gem 'active_hash'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
