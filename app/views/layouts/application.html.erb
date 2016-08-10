@@ -8,6 +8,17 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <% if user_signed_in? %>
+    <nav class="navbar navbar-default">
+      <div>
+         <a class="navbar-brand">ExamBank</a>
+         <ul class="nav navbar-nav">
+            <li><a href="/users/sign_out" data-method="delete">ログアウト</a></li>
+        </ul>
+      </div>
+    </nav>
+  <% end %>
+
   <body>
     <%= yield %>
   </body>
