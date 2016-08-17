@@ -10,5 +10,5 @@ class @ExamList
       </thead>
     </table>"
 
-  get_list: ->
+  create_from_data: (data)->
     return $(m_table_template)
