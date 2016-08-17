@@ -11,3 +11,4 @@
 // about supported directives.
 //
 //= require exam_list/main
+//= require ./main
