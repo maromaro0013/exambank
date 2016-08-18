@@ -12,7 +12,8 @@ get_exam_data = ->
   })
 
 create_exam_list = ->
-  $('#exams_all_list').append(m_exam_list.create_from_data(m_exam_data))
+  list = m_exam_list.create_list_from_data(m_exam_data)
+  $('#exams_all_list').append(list)
 
 $ ->
   get_exam_data()
