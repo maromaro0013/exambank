@@ -17,3 +17,4 @@ create_exam_list = ->
 
 $ ->
   get_exam_data()
+  $('.dropdown-toggle').dropdown()
