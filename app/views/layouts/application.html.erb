@@ -5,7 +5,9 @@
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= yield :add_css_include %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= yield :add_js_include %>
   </head>
 
   <% if user_signed_in? %>
@@ -28,10 +30,4 @@
   <body>
     <%= yield %>
   </body>
-
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= yield :add_css_include %>
-
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= yield :add_js_include %>
 </html>

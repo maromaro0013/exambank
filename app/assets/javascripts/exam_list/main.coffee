@@ -1,11 +1,12 @@
 class @ExamList
   m_table_template =
-    "<table class='table table-hover table-bordered'>
+    "<table id='exam_list_table' class='table table-hover table-bordered'>
       <thead>
         <tr>
-          <th>#</th>
-          <th>name</th>
-          <th>type</th>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Actions</th>
         </tr>
       </thead>
     </table>"
@@ -15,9 +16,16 @@ class @ExamList
       <td>${id}</td>
       <td>${name}</td>
       <td>${type}</td>
+      <td>
+        <a href='/exams/${id}' class='icon-show'></a>
+        <a href='/exams/${id}/edit' class='icon-edit'></a>
+        <a href='javascript:void(0);' class='icon-destroy'></a>
+      </td>
     </tr>"
 
   create_list_from_data: (data)->
+    $('#exam_list_table').remove()
+
     list = $(m_table_template)
     $.template("examTemplate", m_exam_template)
 

@@ -1,0 +1,24 @@
+// Place all the styles related to the exam controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.action-icon {
+  background-repeat:no-repeat;
+  padding:0 0 0 22px;
+  background-size:contain;
+}
+
+.icon-show {
+  @extend .action-icon;
+  background-image: image-url("icons/show.png");
+}
+
+.icon-edit {
+  @extend .action-icon;
+  background-image: image-url("icons/edit.png");
+}
+
+.icon-destroy {
+  @extend .action-icon;
+  background-image: image-url("icons/destroy.png");
+}

@@ -4,6 +4,15 @@ class ExamsController < ApplicationController
   def index
   end
 
+  def new
+  end
+
+  def show
+  end
+
+  def edit
+  end
+
   def list
     respond_to do |format|
       format.json {
