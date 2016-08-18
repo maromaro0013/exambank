@@ -1,6 +1,6 @@
 class @ExamList
   m_table_template =
-    "<table class='table'>
+    "<table class='table table-hover table-bordered'>
       <thead>
         <tr>
           <th>#</th>
@@ -23,7 +23,5 @@ class @ExamList
 
     for i in[0..(data.length - 1)]
       $.tmpl("examTemplate", data[i]).appendTo(list)
-      #sconsole.log data[i]
 
-    #list.append($(m_exam_template))
     return list
