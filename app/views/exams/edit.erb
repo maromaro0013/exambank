@@ -1,12 +1,24 @@
 <div class='container-fluid'>
   <h1><%= @exam.name %></h1>
 
-  <div class='edit_exam'>
-    <div id='exam_type'>
-      <strong>type : </strong><%= @exam.exam_type.name %>
+  <form>
+    <div class='edit_exam'>
+      <div id='exam_name'>
+        <strong>タイトル : </strong><textarea name='name' rows='1' cols='100'> <%= @exam.name %></textarea>
+      </div>
+      <div id='exam_type'>
+        <strong>問題タイプ : </strong><%= @exam.exam_type.name %>
+      </div>
+      <div id='exam_content'>
+        <p><strong>問題文</strong></p>
+        <textarea rows='20' cols='110' name='content'><%= @exam.content %></textarea>
+      </div>
     </div>
-    <div id='exam_content'>
-      <textarea rows='24' cols='120' name='content'><%= @exam.content %></textarea>
+
+    <div class='action_buttons'>
+      <button class='btn btn-primary'>変更</button>
+      <a href='/exams' class='btn btn-default'>戻る</a>
     </div>
-  </div>
+  </form>
+
 </div>

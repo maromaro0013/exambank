@@ -3,9 +3,9 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .action-icon {
-  background-repeat:no-repeat;
-  padding:0 0 0 22px;
-  background-size:contain;
+  background-repeat: no-repeat;
+  padding: 0 0 0 22px;
+  background-size: contain;
 }
 
 .icon-show {
@@ -25,4 +25,12 @@
 
 .edit_exam div {
   margin-top: 20px;
+}
+
+#exam_name textarea {
+  resize: none;
+}
+
+.action_buttons button {
+  margin-right: 16px;
 }
