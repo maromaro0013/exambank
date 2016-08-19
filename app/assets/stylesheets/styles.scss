@@ -2,6 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.navbar-nav li {
+  display: inline-block;
+}
+
 .action-icon {
   background-repeat: no-repeat;
   padding: 0 0 0 22px;
