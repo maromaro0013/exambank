@@ -1,17 +1,19 @@
 <div class='container-fluid'>
   <h1><%= @exam.name %></h1>
 
-  <form>
+  <%= form_for @exam do |f| %>
     <div class='edit_exam'>
       <div id='exam_name'>
-        <strong>タイトル : </strong><textarea name='name' rows='1' cols='100'> <%= @exam.name %></textarea>
+        <strong>タイトル : </strong>
+        <%= f.text_area :name, cols: 100, rows: 1 %>
       </div>
       <div id='exam_type'>
-        <strong>問題タイプ : </strong><%= @exam.exam_type.name %>
+        <strong>問題タイプ : </strong>
+        <%= f.select :exam_type_id, ExamType.all.map{|o| [o.name, o.id]} %>
       </div>
       <div id='exam_content'>
         <p><strong>問題文</strong></p>
-        <textarea rows='20' cols='110' name='content'><%= @exam.content %></textarea>
+        <%= f.text_area :content, cols: 110, rows: 16 %>
       </div>
     </div>
 
@@ -19,6 +21,7 @@
       <button class='btn btn-primary'>変更</button>
       <a href='/exams' class='btn btn-default'>戻る</a>
     </div>
-  </form>
+
+  <% end %>
 
 </div>

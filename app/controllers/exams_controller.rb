@@ -7,6 +7,15 @@ class ExamsController < ApplicationController
   def new
   end
 
+  def update
+    @exam = Exam.find(params[:id])
+    if @exam.update(exam_params)
+      redirect_to "/exams/#{@exam.id}/edit"
+    else
+      raise 'e'
+    end
+  end
+
   def show
   end
 
@@ -17,13 +26,21 @@ class ExamsController < ApplicationController
   def list
     respond_to do |format|
       format.json {
-        ret = Exam.all.map {|e|
-          ret = e.attributes
-          ret['type'] = ExamType.find(ret['exam_type_id']).name
+        ret = Exam.order(:id).map {|e|
+          ret = {}
+          attributes = e.attributes
+          ret['name'] = attributes['name']
+          ret['id'] = attributes['id']
+          ret['type'] = ExamType.find(attributes['exam_type_id']).name
           ret
         }
         render :json => ret.to_json
       }
     end
+  end
+
+  private
+  def exam_params
+    params.require(:exam).permit(:name, :exam_type_id, :content)
   end
 end
