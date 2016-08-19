@@ -11,6 +11,7 @@ class ExamsController < ApplicationController
   end
 
   def edit
+    @exam = Exam.find(params[:id])
   end
 
   def list

@@ -1,0 +1,12 @@
+<div class='container-fluid'>
+  <h1><%= @exam.name %></h1>
+
+  <div class='edit_exam'>
+    <div id='exam_type'>
+      <strong>type : </strong><%= @exam.exam_type.name %>
+    </div>
+    <div id='exam_content'>
+      <textarea rows='24' cols='120' name='content'><%= @exam.content %></textarea>
+    </div>
+  </div>
+</div>
