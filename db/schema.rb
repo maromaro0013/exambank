@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 20160818053948) do
     t.datetime "updated_at",   null: false
     t.integer  "user_id",      null: false
     t.integer  "exam_type_id", null: false
-    t.text     "content"
+    t.text     "content",      null: false
   end
 
   create_table "roles", force: :cascade do |t|

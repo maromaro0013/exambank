@@ -29,7 +29,7 @@ class @ExamList
     list = $(m_table_template)
     $.template("examTemplate", m_exam_template)
 
-    for i in[0..(data.length - 1)]
-      $.tmpl("examTemplate", data[i]).appendTo(list)
+    for d in data
+      $.tmpl("examTemplate", d).appendTo(list)
 
     return list
