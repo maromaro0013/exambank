@@ -10,4 +10,6 @@ Rails.application.routes.draw do
       post 'list'
     end
   end
+
+  resources :exam_choise_selects
 end

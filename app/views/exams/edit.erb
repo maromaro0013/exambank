@@ -1,6 +1,8 @@
 <div class='container-fluid'>
   <h1><%= @exam.name %></h1>
 
+  <span id='attr_exam_id' data-exam-id='<%= @exam.id %>'></span>
+
   <%= form_for @exam do |f| %>
     <div class='edit_exam'>
       <div id='exam_name'>
