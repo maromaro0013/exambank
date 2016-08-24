@@ -25,7 +25,7 @@
     </div>
   <% end %>
 
-  <div class='edit_choise_selects'>
+  <div id='edit_choise_selects'>
     <p><strong>選択肢</strong></p>
     <div class='exam_choise_input_area'>
       <input></input>
@@ -33,9 +33,13 @@
         <option value='true'>○</option>
         <option value='false'>×</option>
       </select>
-      <button class='btn btn-warning'>削除</button>
       <button class='btn btn-success'>更新</button>
+      <button class='btn btn-warning'>削除</button>
     </div>
-    <a href='javascript:void(0);' class='btn btn-primary'>追加</a>
   </div>
+  <button id='choise_add_button' class='btn btn-primary'>追加</button>
 </div>
+
+<% content_for :add_js_include do %>
+	<%= javascript_include_tag 'exam/edit-manifest' %>
+<% end %>
