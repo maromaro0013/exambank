@@ -2,13 +2,15 @@ m_exam_id = ''
 
 m_choise_template =
   "<div class='exam_choise_input_area'>
-    <input value='${text}'></input>
-    <select>
-      <option class='choise_correct_true' value='true'>○</option>
-      <option class='choise_correct_false' value='false'>×</option>
-    </select>
-    <button class='btn btn-success'>更新</button>
-    <button class='btn btn-warning'>削除</button>
+    <form>
+      <input name='p[text]' value='${text}'></input>
+      <select name='p[is_correct]'>
+        <option class='choise_correct_true' value='true'>○</option>
+        <option class='choise_correct_false' value='false'>×</option>
+      </select>
+      <a class='btn btn-success'>更新</a>
+      <a class='btn btn-warning'>削除</a>
+    </form>
   </div>"
 
 push_choise_add_button = ->
@@ -18,7 +20,13 @@ push_choise_add_button = ->
     data: {exam_id: m_exam_id},
     dataType: 'json'
     success: (data) ->
-      $.tmpl("choiseTemplate", '').appendTo($('#edit_choise_selects'))
+      select =$.tmpl("choiseTemplate", '')
+      form = select.children('form')
+      form.children('select').val(String(data.is_correct))
+      form.children('.btn-success').click( ->
+        push_choise_submit_button(data.id, form)
+      )
+      select.appendTo($('#edit_choise_selects'))
   })
 
 get_choise_selects = ->
@@ -29,10 +37,25 @@ get_choise_selects = ->
     dataType: 'json'
     success: (data) ->
       data.forEach( (d) ->
-        select = $.tmpl("choiseTemplate", data)
-        select.children('select').val(String(d.is_correct))
+        select = $.tmpl("choiseTemplate", d)
+        form = select.children('form')
+        form.children('select').val(String(d.is_correct))
+
+        form.children('.btn-success').click( ->
+          push_choise_submit_button(d.id, form)
+        )
         select.appendTo($('#edit_choise_selects'))
       )
+  })
+
+push_choise_submit_button = (choise_id, form) ->
+  $.ajax({
+    url: '/exam_choise_selects/' + choise_id,
+    type: 'put',
+    data: form.serializeArray(),
+    dataType: 'json'
+    success: (data) ->
+      ''
   })
 
 $ ->
