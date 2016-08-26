@@ -18,6 +18,8 @@ class ExamsController < ApplicationController
 
   def show
     @exam = Exam.find(params[:id])
+    qiita = Qiita::Markdown::Processor.new
+    @content = qiita.call(@exam.content)[:output].to_s.html_safe
   end
 
   def edit
@@ -25,9 +27,10 @@ class ExamsController < ApplicationController
   end
 
   def list
+    my_exam = Exam.where(user_id: current_user.id)
     respond_to do |format|
       format.json {
-        ret = Exam.order(:id).map {|e|
+        ret = my_exam.order(:id).select(:id, :name, :exam_type_id).map {|e|
           ret = {}
           attributes = e.attributes
           ret['name'] = attributes['name']
