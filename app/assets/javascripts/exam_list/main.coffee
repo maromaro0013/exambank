@@ -17,6 +17,7 @@ class @ExamList
       <td>${name}</td>
       <td>${type}</td>
       <td>
+        <a href='/exams/${id}' class='icon-show'></a>
         <a href='/exams/${id}/edit' class='icon-edit'></a>
         <a href='javascript:void(0);' class='icon-destroy'></a>
       </td>
