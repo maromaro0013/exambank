@@ -21,4 +21,13 @@ class ExamChoiseSelectsController < ApplicationController
     select = ExamChoiseSelect.find(params[:id])
     select.update(params[:p].permit(:text, :is_correct))
   end
+
+  def destroy
+    respond_to do |format|
+      ExamChoiseSelect.find(params[:id]).delete
+      format.json {
+        render :json => {:result => true}.to_json
+      }
+    end
+  end
 end

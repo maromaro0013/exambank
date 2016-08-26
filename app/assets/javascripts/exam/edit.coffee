@@ -26,6 +26,9 @@ push_choise_add_button = ->
       form.children('.btn-success').click( ->
         push_choise_submit_button(data.id, form)
       )
+      form.children('.btn-warning').click( ->
+        push_choise_delete_button(data.id, select)
+      )
       select.appendTo($('#edit_choise_selects'))
   })
 
@@ -44,6 +47,9 @@ get_choise_selects = ->
         form.children('.btn-success').click( ->
           push_choise_submit_button(d.id, form)
         )
+        form.children('.btn-warning').click( ->
+          push_choise_delete_button(d.id, select)
+        )
         select.appendTo($('#edit_choise_selects'))
       )
   })
@@ -56,6 +62,16 @@ push_choise_submit_button = (choise_id, form) ->
     dataType: 'json'
     success: (data) ->
       ''
+  })
+
+push_choise_delete_button = (choise_id, div) ->
+  $.ajax({
+    url: '/exam_choise_selects/' + choise_id,
+    type: 'delete',
+    data: '',
+    dataType: 'json'
+    success: (data) ->
+      div.remove()
   })
 
 $ ->
