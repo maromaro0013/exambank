@@ -1,7 +1,9 @@
 <div class='container-fluid'>
   <h1><%= @exam.name %></h1>
 
-  <div>
+  <span id='attr_exam_id' data-exam-id='<%= @exam.id %>'></span>
+
+  <div id='exam_show_content'>
     <%= @content %>
   </div>
 
@@ -9,3 +11,7 @@
     <a href='/exams' class='btn btn-default'>戻る</a>
   </div>
 </div>
+
+<% content_for :add_js_include do %>
+	<%= javascript_include_tag 'exam/show-manifest' %>
+<% end %>
